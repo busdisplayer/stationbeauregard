@@ -6,10 +6,23 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Station Beauregard</title>
     <link rel="shortcut icon" href="https://static.TRANSISEREV2.cityway.fr/Content/img/favicon/favicon-32x32.png">
+    <script>
+        function afficherHeureDansTitre() {
+            const maintenant = new Date();
+            const heure = maintenant.getHours().toString().padStart(2, '0');
+            const minutes = maintenant.getMinutes().toString().padStart(2, '0');
+            const secondes = maintenant.getSeconds().toString().padStart(2, '0');
+            const formatHeure = heure + 'h' + minutes;
+            
+            document.title = "Station Beauregard " + formatHeure;
+        }
+
+        setInterval(afficherHeureDansTitre, 1000); // Met à jour le titre toutes les secondes
+    </script>
   </head>
   <body>
    <iframe
-     id = "scratch-embed"
+    id = "scratch-embed"
     src="https://scratch.mit.edu/projects/1069516514/embed" 
     allowtransparency="true" 
     width="100%" 
@@ -18,19 +31,6 @@
     scrolling="no" 
     allowfullscreen="false">
 </iframe>
-    <script>
-    document.getElementById("scratch-embed").onload = function() {
-        // On utilise le timeout pour s'assurer que le contenu est bien chargé
-        setTimeout(function() {
-            // Sélectionner et simuler un clic sur le bouton drapeau vert
-            const iframe = document.getElementById("scratch-embed");
-            const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-            const greenFlagButton = innerDoc.querySelector(".green-flag"); // sélectionne le bouton drapeau vert
-            if (greenFlagButton) {
-                greenFlagButton.click(); // simule un clic
-            }
-        }, 2000); // Temps d'attente avant l'exécution pour s'assurer que le projet est bien chargé
-    };
-</script>
+
 
   </body>
